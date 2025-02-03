@@ -24,5 +24,9 @@
 		<key>UIImageName</key>
 		<string>movieScope_icon</string>
 	</dict>
+	<key>ACCESS_TOKEN</key>
+	<string>$(ACCESS_TOKEN)</string>
+	<key>BASE_API_URL</key>
+	<string>$(BASE_API_URL)</string>
 </dict>
 </plist>

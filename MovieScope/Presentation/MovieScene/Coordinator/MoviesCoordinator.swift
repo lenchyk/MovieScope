@@ -9,7 +9,11 @@ import UIKit
 
 class MoviesCoordinator: Coordinator {
     private lazy var moviesViewModel: MoviesViewModelProtocol = {
-        let viewModel = MoviesViewModel()
+        let moviesRepo = MoviesRepository()
+        let getMoviesUseCase = GetMoviesUseCase(moviesRepository: moviesRepo)
+        let viewModel = MoviesViewModel(
+            getMoviesUseCase: getMoviesUseCase
+        )
         return viewModel
     }()
     
