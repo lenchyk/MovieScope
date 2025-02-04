@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MoviesViewModelProtocol {
+    var movies: [Movie] { get }
     var moviesViewModelActions: MoviesViewModelActions { get set }
 }
 
@@ -20,7 +21,7 @@ class MoviesViewModel: MoviesViewModelProtocol {
     var moviesViewModelActions: MoviesViewModelActions
     
     private var getMoviesUseCase: GetMoviesUseCaseProtocol
-    private var movies: [Movie] = []
+    private(set) var movies: [Movie] = []
     private var page: Int = 1
     
     init(getMoviesUseCase: GetMoviesUseCaseProtocol) {
@@ -36,8 +37,8 @@ class MoviesViewModel: MoviesViewModelProtocol {
             case .success(let movies):
                 self?.movies.append(contentsOf: movies.movies)
                 self?.page = movies.page
-                print("Here \(self?.movies)")
                 self?.moviesViewModelActions.reloadMoviesTableView()
+                print("Here is finish!!!")
             case .failure(let error):
                 self?.moviesViewModelActions.showError(error.localizedDescription)
             }

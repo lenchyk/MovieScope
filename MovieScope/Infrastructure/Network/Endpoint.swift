@@ -18,7 +18,7 @@ enum Endpoint: RawRepresentable {
     var rawValue: String {
         switch self {
         case .dailyTrendingMovies(let page):
-            return "/3/trending/all/day?page=\(page)"
+            return "/3/trending/movie/day?page=\(page)"
         }
     }
 }
