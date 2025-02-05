@@ -10,6 +10,13 @@ import UIKit
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Alertable {
     var viewModel: MoviesViewModelProtocol?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+        configureMoviesTableView()
+        configureActions()
+    }
+    
     // MARK: - UI Elements
     private let moviesTableView: UITableView = {
         let tableView = UITableView()
@@ -17,13 +24,6 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.separatorStyle = .none
         return tableView
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-        configureMoviesTableView()
-        configureActions()
-    }
     
     // MARK: - Bind View Model Actions
     private func configureActions() {
