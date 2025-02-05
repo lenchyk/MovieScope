@@ -10,6 +10,7 @@ import Foundation
 protocol MoviesViewModelProtocol {
     var movies: [Movie] { get }
     var moviesViewModelActions: MoviesViewModelActions { get set }
+    func goToMovieDetails(_ movie: Movie)
 }
 
 struct MoviesViewModelActions {
@@ -21,12 +22,17 @@ class MoviesViewModel: MoviesViewModelProtocol {
     var moviesViewModelActions: MoviesViewModelActions
     
     private var getMoviesUseCase: GetMoviesUseCaseProtocol
+    private var coordinator: MoviesCoordinatorProtocol
     private(set) var movies: [Movie] = []
     private var page: Int = 1
     
-    init(getMoviesUseCase: GetMoviesUseCaseProtocol) {
+    init(
+        getMoviesUseCase: GetMoviesUseCaseProtocol,
+        coordinator: MoviesCoordinatorProtocol
+    ) {
         self.moviesViewModelActions = .init()
         self.getMoviesUseCase = getMoviesUseCase
+        self.coordinator = coordinator
         
         getMovies()
     }
@@ -38,10 +44,13 @@ class MoviesViewModel: MoviesViewModelProtocol {
                 self?.movies.append(contentsOf: movies.movies)
                 self?.page = movies.page
                 self?.moviesViewModelActions.reloadMoviesTableView()
-                print("Here is finish!!!")
             case .failure(let error):
                 self?.moviesViewModelActions.showError(error.localizedDescription)
             }
         }
+    }
+    
+    func goToMovieDetails(_ movie: Movie) {
+        coordinator.showMovieDetails(movie)
     }
 }

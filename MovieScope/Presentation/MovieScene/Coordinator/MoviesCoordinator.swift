@@ -7,12 +7,18 @@
 
 import UIKit
 
-class MoviesCoordinator: Coordinator {
+protocol MoviesCoordinatorProtocol {
+    func start()
+    func showMovieDetails(_ movie: Movie)
+}
+
+class MoviesCoordinator: MoviesCoordinatorProtocol {
     private lazy var moviesViewModel: MoviesViewModelProtocol = {
         let moviesRepo = MoviesRepository()
         let getMoviesUseCase = GetMoviesUseCase(moviesRepository: moviesRepo)
         let viewModel = MoviesViewModel(
-            getMoviesUseCase: getMoviesUseCase
+            getMoviesUseCase: getMoviesUseCase,
+            coordinator: self
         )
         return viewModel
     }()
@@ -27,5 +33,11 @@ class MoviesCoordinator: Coordinator {
         let moviesViewController = MoviesViewController()
         moviesViewController.viewModel = moviesViewModel
         rootViewController.pushViewController(moviesViewController, animated: true)
+    }
+    
+    func showMovieDetails(_ movie: Movie) {
+        let moviesDetailsVC = MovieDetailsViewController()
+        moviesDetailsVC.viewModel = MovieDetailsViewModel(movie: movie)
+        rootViewController.pushViewController(moviesDetailsVC, animated: true)
     }
 }

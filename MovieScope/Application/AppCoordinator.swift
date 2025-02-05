@@ -7,7 +7,11 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator {
+protocol AppCoordinatorProtocol {
+    func start()
+}
+
+class AppCoordinator: AppCoordinatorProtocol {
     private var window: UIWindow?
     
     private lazy var rootViewController: UINavigationController = {

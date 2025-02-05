@@ -19,7 +19,6 @@
 		BC08294A2D4FEBA200394C57 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829492D4FEBA200394C57 /* MovieDetailsViewController.swift */; };
 		BC08294C2D4FEBD200394C57 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08294B2D4FEBD200394C57 /* MovieDetailsViewModel.swift */; };
 		BC08294F2D4FF4FF00394C57 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08294E2D4FF4FF00394C57 /* AppCoordinator.swift */; };
-		BC0829522D4FFE7600394C57 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829512D4FFE7600394C57 /* Coordinator.swift */; };
 		BC0829542D4FFECA00394C57 /* MoviesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829532D4FFECA00394C57 /* MoviesCoordinator.swift */; };
 		BC0829582D50007300394C57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829572D50007300394C57 /* Constants.swift */; };
 		BC0829612D50DC0F00394C57 /* MoviesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829602D50DC0F00394C57 /* MoviesRepositoryProtocol.swift */; };
@@ -51,7 +50,6 @@
 		BC0829492D4FEBA200394C57 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		BC08294B2D4FEBD200394C57 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		BC08294E2D4FF4FF00394C57 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		BC0829512D4FFE7600394C57 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC0829532D4FFECA00394C57 /* MoviesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCoordinator.swift; sourceTree = "<group>"; };
 		BC0829572D50007300394C57 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC0829602D50DC0F00394C57 /* MoviesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -176,27 +174,11 @@
 		BC08293C2D4FE6A500394C57 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				BC08293E2D4FE6E400394C57 /* ViewModel */,
-				BC08293D2D4FE6DE00394C57 /* View */,
-			);
-			path = Movies;
-			sourceTree = "<group>";
-		};
-		BC08293D2D4FE6DE00394C57 /* View */ = {
-			isa = PBXGroup;
-			children = (
 				BC0829742D52188600394C57 /* MovieCell */,
+				BC0829452D4FE90600394C57 /* MoviesViewModel.swift */,
 				BC0829472D4FEAB200394C57 /* MoviesViewController.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BC08293E2D4FE6E400394C57 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BC0829452D4FE90600394C57 /* MoviesViewModel.swift */,
-			);
-			path = ViewModel;
+			path = Movies;
 			sourceTree = "<group>";
 		};
 		BC08293F2D4FE89B00394C57 /* CoreDataStorage */ = {
@@ -211,32 +193,15 @@
 		BC0829422D4FE8C600394C57 /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
-				BC0829442D4FE8D000394C57 /* ViewModel */,
-				BC0829432D4FE8CB00394C57 /* View */,
-			);
-			path = MovieDetails;
-			sourceTree = "<group>";
-		};
-		BC0829432D4FE8CB00394C57 /* View */ = {
-			isa = PBXGroup;
-			children = (
+				BC08294B2D4FEBD200394C57 /* MovieDetailsViewModel.swift */,
 				BC0829492D4FEBA200394C57 /* MovieDetailsViewController.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BC0829442D4FE8D000394C57 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BC08294B2D4FEBD200394C57 /* MovieDetailsViewModel.swift */,
-			);
-			path = ViewModel;
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 		BC0829502D4FFE6500394C57 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BC0829512D4FFE7600394C57 /* Coordinator.swift */,
 				BC0829572D50007300394C57 /* Constants.swift */,
 			);
 			path = Common;
@@ -409,7 +374,6 @@
 				BC08291A2D4E996800394C57 /* AppDelegate.swift in Sources */,
 				BC08291C2D4E996800394C57 /* SceneDelegate.swift in Sources */,
 				BC0829462D4FE90600394C57 /* MoviesViewModel.swift in Sources */,
-				BC0829522D4FFE7600394C57 /* Coordinator.swift in Sources */,
 				BC0829412D4FE8B500394C57 /* CoreDataStorageService.swift in Sources */,
 				BC08296F2D51485F00394C57 /* MoviesRemote.swift in Sources */,
 				BC0829672D51121F00394C57 /* BaseAPIService.swift in Sources */,

@@ -23,7 +23,6 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         setupViews()
         configureMoviesTableView()
         configureActions()
-        print("Configuring actions")
     }
     
     // MARK: - Bind View Model Actions
@@ -40,7 +39,6 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private func setupViews() {
         view.addSubview(moviesTableView)
         setupConstaints()
-        print("Adding views")
     }
     
     private func setupConstaints() {
@@ -76,7 +74,13 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return UITableViewCell()
         }
         
-        cell.configure(title: movie.title, image: .checkmark)
+        cell.configure(title: movie.title, image: .library)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let movie = viewModel?.movies[indexPath.row] else { return }
+        viewModel?.goToMovieDetails(movie)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
