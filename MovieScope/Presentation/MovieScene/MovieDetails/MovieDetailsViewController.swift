@@ -120,12 +120,12 @@ class MovieDetailsViewController: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: movieImageView.bottomAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
-//
+            
 //            // Rating Label
             ratingLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             ratingLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             ratingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
-//
+
 //            // Description Label
             overviewLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 16),
             overviewLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),

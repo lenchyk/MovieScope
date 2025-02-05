@@ -5,6 +5,8 @@
 //  Created by Lena Soroka on 03.02.2025.
 //
 
+import CoreData
+
 struct MovieRemote: Decodable {
     private enum CodingKeys: String, CodingKey {
         case id
@@ -33,7 +35,7 @@ struct MovieRemote: Decodable {
     let title: String?
     let overview: String?
     let posterPath: String?
-    let voteAverage: Double?
+    let voteAverage: Double
     let mediaType: MediaTypeRemote?
     
     func toDomain() -> Movie {
@@ -42,8 +44,19 @@ struct MovieRemote: Decodable {
             title: title ?? "",
             overview: overview ?? "",
             poster: posterPath ?? "",
-            voteAverage: voteAverage ?? 0,
+            voteAverage: voteAverage,
             mediaType: mediaType?.toDomain() ?? .movie
         )
+    }
+    
+    func toEntity(in context: NSManagedObjectContext) -> MovieEntity {
+        let entity: MovieEntity = .init(context: context)
+        entity.id = Int64(id)
+        entity.title = title
+        entity.poster = posterPath
+        entity.overview = overview
+        entity.voteAverage = voteAverage
+        entity.mediaType = mediaType?.rawValue
+        return entity
     }
 }

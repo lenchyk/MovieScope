@@ -14,7 +14,8 @@ protocol MoviesCoordinatorProtocol {
 
 class MoviesCoordinator: MoviesCoordinatorProtocol {
     private lazy var moviesViewModel: MoviesViewModelProtocol = {
-        let moviesRepo = MoviesRepository()
+        let moviesStorageService = MoviesStorageService()
+        let moviesRepo = MoviesRepository(moviesStorageService: moviesStorageService)
         let getMoviesUseCase = GetMoviesUseCase(moviesRepository: moviesRepo)
         let viewModel = MoviesViewModel(
             getMoviesUseCase: getMoviesUseCase,
