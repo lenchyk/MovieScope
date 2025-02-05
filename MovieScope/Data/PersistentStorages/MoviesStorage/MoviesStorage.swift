@@ -34,7 +34,7 @@ class MoviesStorageService: MoviesStorageServiceProtocol {
                 let requestEntity = movies.toEntity(in: context)
                 try context.save()
             } catch {
-                debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
+                debugPrint(Constants.Error.savingFailed(error.localizedDescription))
             }
         }
     }

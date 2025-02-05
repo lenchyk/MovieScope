@@ -15,7 +15,7 @@ enum AppConfigurator {
 
     static func value(for key: Keys) -> String {
         guard let value = Bundle.main.object(forInfoDictionaryKey: key.rawValue) as? String else {
-            fatalError("Object not found by key \(key.rawValue)")
+            fatalError(Constants.Error.accessTokenNotFound(key.rawValue))
         }
         return value
     }

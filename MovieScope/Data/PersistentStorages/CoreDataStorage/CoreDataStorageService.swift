@@ -15,7 +15,7 @@ class CoreDataStorageService {
         let container = NSPersistentContainer(name: "MovieScope")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                fatalError(Constants.Error.universal(error.localizedDescription))
             }
         })
         return container
@@ -29,7 +29,7 @@ class CoreDataStorageService {
                 try context.save()
             } catch {
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                fatalError(Constants.Error.universal(error.localizedDescription))
             }
         }
     }

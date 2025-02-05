@@ -166,7 +166,6 @@
 		BC08293A2D4FE21F00394C57 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BC0829772D5222C600394C57 /* Common */,
 				BC0829552D50003300394C57 /* MovieScene */,
 			);
 			path = Presentation;
@@ -212,6 +211,7 @@
 		BC0829502D4FFE6500394C57 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BC0829782D5222D600394C57 /* Alertable.swift */,
 				BC0829572D50007300394C57 /* Constants.swift */,
 			);
 			path = Common;
@@ -296,14 +296,6 @@
 				BC0829752D5218A100394C57 /* MovieTableViewCell.swift */,
 			);
 			path = MovieCell;
-			sourceTree = "<group>";
-		};
-		BC0829772D5222C600394C57 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				BC0829782D5222D600394C57 /* Alertable.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		BC08297A2D5376DB00394C57 /* MoviesStorage */ = {
