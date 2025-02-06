@@ -50,6 +50,9 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private func setupConstaints() {
+        let placeholderHeight = placeholderView.heightAnchor.constraint(equalToConstant: view.frame.width - 48)
+        placeholderHeight.priority = .init(50)
+        
         NSLayoutConstraint.activate([
             // MoviesTableView Constraints
             moviesTableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -61,7 +64,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             placeholderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             placeholderView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             placeholderView.widthAnchor.constraint(equalToConstant: view.frame.width - 48),
-            placeholderView.heightAnchor.constraint(equalToConstant: view.frame.width - 48)
+            placeholderHeight
         ])
     }
     

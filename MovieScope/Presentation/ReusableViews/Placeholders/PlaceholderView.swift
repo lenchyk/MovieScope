@@ -11,6 +11,7 @@ class PlaceholderView: UIView {
     let imageView: UIImageView = {
         let image = UIImage(systemName: "questionmark.bubble")
         let imageView = UIImageView(image: image)
+        imageView.tintColor = .blue
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
