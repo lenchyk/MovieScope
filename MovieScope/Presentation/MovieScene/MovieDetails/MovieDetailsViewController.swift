@@ -19,7 +19,7 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - UI Components
     private let movieImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,6 +63,7 @@ class MovieDetailsViewController: UIViewController {
     
     private let contentView: UIView = {
         let view = UIView()
+        view.autoresizingMask = .flexibleHeight
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -92,15 +93,16 @@ class MovieDetailsViewController: UIViewController {
         
     private func setupConstraints() {
         let heightConstraint = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        heightConstraint.priority = UILayoutPriority(250)
+        heightConstraint.priority = .defaultLow
+        
         
         NSLayoutConstraint.activate([
             // Scroll View
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             
             // Content View
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
@@ -108,15 +110,14 @@ class MovieDetailsViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            heightConstraint
+           //heightConstraint
         ])
         
         NSLayoutConstraint.activate([
             // Movie Image
             movieImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             movieImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            movieImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.4),
-            movieImageView.heightAnchor.constraint(equalTo: movieImageView.widthAnchor, multiplier: 1.5),
+            movieImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
             
 //            // Title Label
             titleLabel.topAnchor.constraint(equalTo: movieImageView.bottomAnchor, constant: 16),
