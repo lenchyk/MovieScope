@@ -38,6 +38,7 @@
 		BC0829982D538A0700394C57 /* MoviesEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829942D538A0700394C57 /* MoviesEntity+CoreDataProperties.swift */; };
 		BC0829992D538A0700394C57 /* MovieEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829952D538A0700394C57 /* MovieEntity+CoreDataClass.swift */; };
 		BC08299A2D538A0700394C57 /* MovieEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0829962D538A0700394C57 /* MovieEntity+CoreDataProperties.swift */; };
+		BC08299E2D54FDB000394C57 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08299D2D54FDB000394C57 /* PlaceholderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		BC0829942D538A0700394C57 /* MoviesEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoviesEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BC0829952D538A0700394C57 /* MovieEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BC0829962D538A0700394C57 /* MovieEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BC08299D2D54FDB000394C57 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		BC08293A2D4FE21F00394C57 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				BC08299B2D54FD9600394C57 /* ReusableViews */,
 				BC0829552D50003300394C57 /* MovieScene */,
 			);
 			path = Presentation;
@@ -326,6 +329,22 @@
 			path = Movies;
 			sourceTree = "<group>";
 		};
+		BC08299B2D54FD9600394C57 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				BC08299C2D54FDA100394C57 /* Placeholders */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		BC08299C2D54FDA100394C57 /* Placeholders */ = {
+			isa = PBXGroup;
+			children = (
+				BC08299D2D54FDB000394C57 /* PlaceholderView.swift */,
+			);
+			path = Placeholders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -402,6 +421,7 @@
 				BC0829382D4FDDC900394C57 /* Movies.swift in Sources */,
 				BC0829762D5218A100394C57 /* MovieTableViewCell.swift in Sources */,
 				BC08294A2D4FEBA200394C57 /* MovieDetailsViewController.swift in Sources */,
+				BC08299E2D54FDB000394C57 /* PlaceholderView.swift in Sources */,
 				BC08291A2D4E996800394C57 /* AppDelegate.swift in Sources */,
 				BC08291C2D4E996800394C57 /* SceneDelegate.swift in Sources */,
 				BC0829462D4FE90600394C57 /* MoviesViewModel.swift in Sources */,

@@ -28,6 +28,7 @@ class MovieDetailsViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 22)
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -46,6 +47,7 @@ class MovieDetailsViewController: UIViewController {
     
     private let overviewLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
         label.textAlignment = .left
@@ -72,7 +74,7 @@ class MovieDetailsViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         scrollView.contentSize = contentView.frame.size

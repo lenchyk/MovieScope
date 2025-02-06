@@ -23,4 +23,8 @@ enum Constants {
             return "Error! The error when saving movies! \(info)!"
         }
     }
+    
+    enum Placeholder {
+        static let text = "No data to display yet. Please, check your internet connection."
+    }
 }

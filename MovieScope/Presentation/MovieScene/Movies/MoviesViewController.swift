@@ -18,17 +18,24 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: - UI Elements
+    private let placeholderView: PlaceholderView = {
+        let placeholder = PlaceholderView()
+        placeholder.translatesAutoresizingMaskIntoConstraints = false
+        return placeholder
+    }()
+    
     private let moviesTableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = 100
         tableView.separatorStyle = .none
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     // MARK: - Bind View Model Actions
     private func configureActions() {
         viewModel?.moviesViewModelActions.reloadMoviesTableView = { [weak self] in
-            self?.reloadMoviesTableView()
+            self?.updateUI()
         }
         viewModel?.moviesViewModelActions.showError = { [weak self] error in
             self?.showAlert(message: error)
@@ -37,18 +44,33 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: - Utility Methods
     private func setupViews() {
+        view.addSubview(placeholderView)
         view.addSubview(moviesTableView)
         setupConstaints()
     }
     
     private func setupConstaints() {
-        moviesTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            // MoviesTableView Constraints
             moviesTableView.topAnchor.constraint(equalTo: view.topAnchor),
             moviesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             moviesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            moviesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            moviesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // PlaceholderView Constraints
+            placeholderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            placeholderView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            placeholderView.widthAnchor.constraint(equalToConstant: view.frame.width - 48),
+            placeholderView.heightAnchor.constraint(equalToConstant: view.frame.width - 48)
         ])
+    }
+    
+    private func updateUI() {
+        DispatchQueue.main.async {
+            self.placeholderView.isHidden = self.viewModel?.movies.isEmpty != true
+            self.moviesTableView.isHidden = self.viewModel?.movies.isEmpty == true
+            self.moviesTableView.reloadData()
+        }
     }
     
     // MARK: - Table View Configuratins
@@ -56,12 +78,6 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         moviesTableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.cellID)
         moviesTableView.dataSource = self
         moviesTableView.delegate = self
-    }
-    
-    private func reloadMoviesTableView() {
-        DispatchQueue.main.async {
-            self.moviesTableView.reloadData()
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
